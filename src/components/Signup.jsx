@@ -1,5 +1,6 @@
 const URL = "https://robertuibar.pythonanywhere.com/api/signup/";
 import { useState, useRef } from "react";
+import { Link } from "react-router-dom/cjs/react-router-dom";
 
 function Signup() {
   const [formData, setFormData] = useState({
@@ -48,16 +49,29 @@ function Signup() {
   const btnRef = useRef(null);
 
   return (
-    <div className="bg-[#2A2D43] col-span-3 flex flex-col justify-center items-center">
-      <div className="bg-[#414361] w-[20vw] h-[30vh] flex flex-col justify-center items-center rounded-3xl">
-        <h1>Log into your account</h1>
+    <div className="bg-[#2A2D43] min-h-screen text-white flex flex-col justify-center items-center">
+      <div className="bg-[#414361] min-w-[25em] min-h-[20em] flex flex-col justify-center items-center rounded-3xl">
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col justify-center items-center gap-4"
+          className=" flex h-full w-full flex-col justify-center items-center gap-4"
         >
-          <input value={FormData.username} type="text" />
-          <input value={FormData.password} type="text" />
-          <input value={FormData.email} type="text" />
+          <h1 className="text-2xl">Sign up</h1>
+
+          <input
+            className="text-black w-[80%] p-2 rounded-3xl"
+            value={FormData.username}
+            type="text"
+          />
+          <input
+            className="text-black w-[80%] p-2 rounded-3xl"
+            value={FormData.password}
+            type="text"
+          />
+          <input
+            className="text-black w-[80%] p-2 rounded-3xl"
+            value={FormData.email}
+            type="text"
+          />
           <button
             ref={btnRef}
             onMouseOver={() => {
@@ -67,12 +81,13 @@ function Signup() {
               btnRef.current.style.backgroundColor = "#004BA8";
             }}
             onClick={handleSubmit}
-            className=" p-2 bg-[#004BA8] rounded-3xl duration-300"
+            className="p-2 bg-[#004BA8] rounded-3xl duration-300"
           >
             Create account
           </button>
         </form>
       </div>
+      <Link to="/login">already have an account?</Link>
     </div>
   );
 }

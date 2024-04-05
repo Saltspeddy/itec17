@@ -18,18 +18,21 @@ function App() {
   return (
     <>
       <Router>
-        <div className="min-h-screen grid grid-cols-4">
+        <div className="min-h-screen ">
           <Navbar />
 
           <Switch>
             <Route exact path="/">
               <Home />
             </Route>
-            <Route path="/login">
+            <Route path="/signup">
               <Signup />
             </Route>
             <Route path="/dashboard">
               <Dashboard />
+            </Route>
+            <Route path="/login">
+              <Login />
             </Route>
           </Switch>
         </div>
