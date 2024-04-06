@@ -32,13 +32,13 @@ const dataChart = [
 
 function Charts() {
   return (
-    <div className="w-[60%]">
+    <div className="w-[40vw] h-[100%] min-w-[300px] min-h-[100px] pt-4">
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart data={dataChart}>
           <YAxis></YAxis>
           <XAxis dataKey="hour"></XAxis>
           <CartesianGrid strokeDasharray="5 5"></CartesianGrid>
-          <Area dataKey="response" stroke="#FFA9E7" fill="#FF84E8" />
+          <Area dataKey="response" stroke="#FFA9E7" fill="#f72585" />
         </AreaChart>
       </ResponsiveContainer>
     </div>

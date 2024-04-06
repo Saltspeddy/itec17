@@ -19,7 +19,6 @@ function Login() {
   };
 
   useEffect(() => {
-    // Get the value from local storage when the component mounts
     const storedUsername = localStorage.getItem("username");
     if (storedUsername) {
       setUsername(storedUsername);
@@ -59,8 +58,8 @@ function Login() {
   const btnRef = useRef(null);
 
   return (
-    <div className="md:ml-[200px] bg-[#7F2CCB] min-h-screen text-white col-span-4 flex flex-col justify-center items-center">
-      <div className="bg-[#181925] min-w-[25em] min-h-[20em] flex flex-col justify-center items-center rounded-3xl">
+    <div className="bg-[#5016BC] min-h-screen text-white col-span-4 flex flex-col justify-center items-center">
+      <div className="bg-[#181925] min-w-[20em] min-h-[20em] flex flex-col justify-center items-center rounded-3xl">
         <form
           onSubmit={handleSubmit}
           className=" flex h-full w-full flex-col justify-center items-center gap-4"

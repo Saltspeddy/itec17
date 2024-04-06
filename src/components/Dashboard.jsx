@@ -1,5 +1,9 @@
 import Charts from "./Charts";
 import { useState, useEffect } from "react";
+import Navbar from "./Navbar";
+import Homebtn from "./HomeBtn";
+import EndpContainer from "./endpContainer";
+import { Link } from "react-router-dom/cjs/react-router-dom";
 const URL = "http://172.20.10.5:8181/api/endp/";
 // import Cookies from "js-cookie";
 function Dashboard() {
@@ -51,61 +55,31 @@ function Dashboard() {
   };
 
   return (
-    <div className="md:ml-[200px] min-h-screen bg-[#7F2CCB] flex flex-col justify-center items-center">
+    <div className="w-screen min-h-screen bg-[#5016BC] flex flex-col justify-center items-center">
+      <Navbar />
+      <Homebtn />
       <div></div>
-      <h1>Enter your website URL</h1>
+      <h1 className="text-3xl text-white mb-2 md:pt-0 pt-16">
+        Enter your website URL
+      </h1>
       <form onSubmit={handleSubmit}>
         <input
           name="url"
           placeholder="enter your endpoint"
           value={formData.url}
-          className="p-2 text-black rounded-3xl"
+          className="p-4 text-black rounded-3xl w-[50vw] min-w-[300px]"
           type="text"
           onChange={handleChange}
         />
       </form>
-      <div className="w-full p-4 text-white flex flex-wrap gap-4 justify-center items-center">
-        <div className=" flex flex-row flex-wrap bg-[#181925] h-[200px] w-[500px] rounded-xl">
-          <Charts />
-
-          <div className="p-4">
-            <div className="flex ">
-              <h1>Name:</h1>
-              <p>example.com</p>
-            </div>
-            <div className="flex justify-center items-center">
-              <h1>Status:</h1>
-              <p>Healthy</p>
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-wrap bg-[#181925] h-[200px] w-[500px] rounded-xl">
-          <Charts />
-          <div className="p-4">
-            <div className="flex text-2xl justify-center items-center">
-              <h1>Status:</h1>
-              <p>Unstable</p>
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-wrap bg-[#181925] h-[200px] w-[500px] rounded-xl">
-          <Charts />
-          <div className="p-4">
-            <div className="flex text-2xl justify-center items-center">
-              <h1>Status:</h1>
-              <p>Unstable</p>
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-wrap bg-[#181925] h-[200px] w-[500px] rounded-xl">
-          <Charts />
-          <div className="p-4">
-            <div className="flex text-2xl justify-center items-center">
-              <h1>Status:</h1>
-              <p>Down</p>
-            </div>
-          </div>
-        </div>
+      <div className="w-[80%] p-4 text-white flex flex-wrap gap-4 justify-center items-center">
+        <Link to="/endpoint">
+          <EndpContainer endpName={"/contact"} status={"green"} />
+        </Link>
+        <EndpContainer endpName={"/about"} status={"down"} />
+        <EndpContainer endpName={"/informatii"} status={"yellow"} />
+        <EndpContainer endpName={"/home"} status={"green"} />
+        <EndpContainer endpName={"/home"} status={"green"} />
       </div>
     </div>
   );

@@ -10,8 +10,9 @@ import {
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
-import Navbar from "./components/Navbar";
+// import Navbar from "./components/Navbar";
 import Signup from "./components/Signup";
+import Endpoint from "./components/Endpoint";
 function App() {
   const [count, setCount] = useState(0);
 
@@ -19,7 +20,7 @@ function App() {
     <>
       <Router>
         <div className="min-h-screen ">
-          <Navbar />
+          {/* <Navbar /> */}
 
           <Switch>
             <Route exact path="/">
@@ -33,6 +34,9 @@ function App() {
             </Route>
             <Route path="/login">
               <Login />
+            </Route>
+            <Route path="/endpoint">
+              <Endpoint />
             </Route>
           </Switch>
         </div>
