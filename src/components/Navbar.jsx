@@ -5,8 +5,8 @@ function Navbar() {
   const dashboardRef = useRef(null);
 
   return (
-    <div className="bg-[#181925] w-[200px]  h-screen fixed text-xl font-roboto flex flex-col justify-center items-start">
-      <ul className="h-full text-xl flex flex-col justify-between p-4 text-white w-full">
+    <div className="bg-[#181925] w-[200px] md:translate-x-0 translate-x-[-200px] h-screen fixed text-xl font-roboto flex flex-col justify-center items-start">
+      <ul className="h-full text-xl flex flex-col justify-between  text-white w-full">
         <div className="flex flex-col gap-4">
           <Link
             ref={homeRef}
@@ -17,7 +17,7 @@ function Navbar() {
               homeRef.current.style.backgroundColor = "#404363";
             }}
             to="/"
-            className="bg-[#404363] p-2 rounded-xl duration-300 w-full"
+            className="bg-[#404363] p-2  duration-300 w-full"
           >
             {" "}
             Home
@@ -32,7 +32,7 @@ function Navbar() {
               dashboardRef.current.style.backgroundColor = "#404363";
             }}
             to="/dashboard"
-            className="bg-[#404363] p-2 rounded-xl w-full duration-300"
+            className="bg-[#404363] p-2 w-full duration-300"
           >
             Dashboard
           </Link>

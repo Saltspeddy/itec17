@@ -1,6 +1,7 @@
-const URL = "https://robertuibar.pythonanywhere.com/api/signup/";
+const URL = "http://172.20.10.5:8181/api/signup/";
 import { useState, useRef } from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom";
+import Cookies from "js-cookie";
 
 function Signup() {
   const [formData, setFormData] = useState({
@@ -49,8 +50,8 @@ function Signup() {
   const btnRef = useRef(null);
 
   return (
-    <div className="bg-[#2A2D43] min-h-screen text-white flex flex-col justify-center items-center">
-      <div className="bg-[#414361] min-w-[25em] min-h-[20em] flex flex-col justify-center items-center rounded-3xl">
+    <div className="md:ml-[200px] bg-[#7F2CCB] min-h-screen text-white flex flex-col justify-center items-center">
+      <div className="bg-[#181925] min-w-[25em] min-h-[20em] flex flex-col justify-center items-center rounded-3xl">
         <form
           onSubmit={handleSubmit}
           className=" flex h-full w-full flex-col justify-center items-center gap-4"
@@ -59,18 +60,27 @@ function Signup() {
 
           <input
             className="text-black w-[80%] p-2 rounded-3xl"
-            value={FormData.username}
+            placeholder="username"
+            value={formData.username}
+            name="username"
             type="text"
+            onChange={handleChange}
           />
           <input
             className="text-black w-[80%] p-2 rounded-3xl"
-            value={FormData.password}
+            placeholder="password"
+            value={formData.password}
+            name="password"
             type="text"
+            onChange={handleChange}
           />
           <input
             className="text-black w-[80%] p-2 rounded-3xl"
-            value={FormData.email}
+            placeholder="email"
+            value={formData.email}
+            name="email"
             type="text"
+            onChange={handleChange}
           />
           <button
             ref={btnRef}

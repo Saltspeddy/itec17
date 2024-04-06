@@ -1,11 +1,12 @@
-const URL = "https://robertuibar.pythonanywhere.com/api/signup/";
+const URL = "http://172.20.10.5:8181/api/login/";
 import { useState, useRef } from "react";
+import Cookies from "js-cookie";
+import { data } from "autoprefixer";
 
 function Login() {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
-    email: "",
   });
 
   //handling the changes in the input form
@@ -28,7 +29,9 @@ function Login() {
         },
         body: JSON.stringify(formData),
       });
-
+      const data = await response.json();
+      console.log("Token:", data.token);
+      Cookies.set("Token", data, { expires: 1 / 24 });
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
@@ -38,7 +41,6 @@ function Login() {
       setFormData({
         username: "",
         password: "",
-        email: "",
       });
     } catch (error) {
       console.error("Error posting data:", error);
@@ -48,8 +50,8 @@ function Login() {
   const btnRef = useRef(null);
 
   return (
-    <div className="bg-[#2A2D43] min-h-screen text-white col-span-4 flex flex-col justify-center items-center">
-      <div className="bg-[#414361] min-w-[25em] min-h-[20em] flex flex-col justify-center items-center rounded-3xl">
+    <div className="md:ml-[200px] bg-[#7F2CCB] min-h-screen text-white col-span-4 flex flex-col justify-center items-center">
+      <div className="bg-[#181925] min-w-[25em] min-h-[20em] flex flex-col justify-center items-center rounded-3xl">
         <form
           onSubmit={handleSubmit}
           className=" flex h-full w-full flex-col justify-center items-center gap-4"
@@ -58,13 +60,19 @@ function Login() {
 
           <input
             className="text-black w-[80%] p-2 rounded-3xl"
-            value={FormData.username}
+            placeholder="username"
+            value={formData.username}
             type="text"
+            name="username"
+            onChange={handleChange}
           />
           <input
             className="text-black w-[80%] p-2 rounded-3xl"
-            value={FormData.password}
+            placeholder="password"
+            value={formData.password}
             type="text"
+            name="password"
+            onChange={handleChange}
           />
 
           <button
