@@ -1,11 +1,11 @@
 import Charts from "./Charts";
 import { useState, useEffect } from "react";
 const URL = "http://172.20.10.5:8181/api/endp/";
-
+// import Cookies from "js-cookie";
 function Dashboard() {
   const [formData, setFormData] = useState({
     url: "",
-    // token: "asdasfsa",
+    token: localStorage.getItem("Token"),
   });
 
   //handling the changes in the input form
@@ -24,12 +24,16 @@ function Dashboard() {
       const response = await fetch(URL, {
         method: "POST",
         headers: {
+          // Authorization:,
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
       const data = await response.json();
       console.log("State:", data.status);
+      console.log("State:", data.time_response);
+      console.log("State:", data.user);
+
       if (!response.ok) {
         console.log(response.json());
         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -39,7 +43,7 @@ function Dashboard() {
       // Optionally, clear the form after successful submission
       setFormData({
         url: "",
-        // token: "",
+        token: localStorage.getItem("Token"),
       });
     } catch (error) {
       console.error("Error posting data:", error);

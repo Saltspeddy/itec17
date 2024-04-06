@@ -1,5 +1,5 @@
 const URL = "http://172.20.10.5:8181/api/login/";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Cookies from "js-cookie";
 import { data } from "autoprefixer";
 
@@ -18,6 +18,14 @@ function Login() {
     }));
   };
 
+  useEffect(() => {
+    // Get the value from local storage when the component mounts
+    const storedUsername = localStorage.getItem("username");
+    if (storedUsername) {
+      setUsername(storedUsername);
+    }
+  }, []);
+
   //posting the added data to the database
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,11 +39,12 @@ function Login() {
       });
       const data = await response.json();
       console.log("Token:", data.token);
-      Cookies.set("Token", data, { expires: 1 / 24 });
+      localStorage.setItem("Token", data.token);
+
+      // Cookies.set("Token", data.token, { expires: 1 / 24 });
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-
       console.log("Data posted successfully");
       // Optionally, clear the form after successful submission
       setFormData({
