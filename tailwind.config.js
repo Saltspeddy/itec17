@@ -8,7 +8,7 @@ export default {
     extend: {
       fontFamily: {
         roboto: "'Roboto', sans-serif",
-        maker: "'Permanent Marker', cursive"
+        rubik: "'Rubik', sans-serif"
    }
     },
   },

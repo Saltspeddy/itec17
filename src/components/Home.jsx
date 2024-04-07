@@ -7,7 +7,7 @@ const appsURL = "http://172.20.10.5:8181/api/app_get/";
 function Home() {
   const btnRef = useRef(null);
   const [className, setClassName] = useState(
-    "w-screen z-30 h-screen bg-black text-black fixed opacity-50 hidden"
+    "w-screen z-30 md:h-screen h-[110vh] bg-black text-black fixed opacity-50 hidden"
   );
   const [classNameField, setClassNameField] = useState(
     "fixed z-50 bg-[#181925] w-[500px] h-[200px] translate-x-[calc(50%-250px)] translate-y-[calc(50%+200px)] flex flex-col justify-center items-center rounded-2xl hidden"
@@ -18,17 +18,17 @@ function Home() {
     console.log(3);
     if (
       className ===
-      "w-screen z-30 h-screen bg-black text-black fixed opacity-50 hidden"
+      "w-screen z-30 md:h-screen h-[110vh] bg-black text-black fixed opacity-50 hidden"
     ) {
       setClassName(
-        "w-screen z-30 h-screen bg-black text-black fixed opacity-50 visible"
+        "w-screen z-30 md:h-screen h-[110vh] bg-black text-black fixed opacity-50 visible"
       );
       setClassNameField(
         "fixed z-50 bg-[#181925] w-[500px] h-[200px] translate-x-[calc(50%-250px)] translate-y-[calc(50%+200px)] flex flex-col justify-center items-center rounded-2xl visible"
       );
     } else {
       setClassName(
-        "w-screen z-30 h-screen bg-black text-black fixed opacity-50 hidden"
+        "w-screen z-30 md:h-screen h-[110vh] bg-black text-black fixed opacity-50 hidden"
       );
       setClassNameField(
         "fixed z-50 bg-[#181925] w-[500px] h-[200px] translate-x-[calc(50%-250px)] translate-y-[calc(50%+200px)] flex flex-col justify-center items-center rounded-2xl hidden"
@@ -113,10 +113,10 @@ function Home() {
   return (
     <div
       // onClick={createApp}
-      className="w-screen bg-cover bg-center bg-no-repeat bg-[#5016BC] text-white min-h-screen flex flex-col items-center"
+      className="w-screen bg-cover bg-center bg-no-repeat bg-[#5016BC] text-white min-h-screen flex flex-col items-center py-16"
     >
       {/* <div className="w-screen h-screen bg-black opacity-40 fixed z-10"></div> */}
-      <Navbar />
+      <Navbar link="signup" />
       <div
         className={className}
         onClick={() => {
@@ -147,14 +147,47 @@ function Home() {
           </button>
         </form>
       </div>
-      <div className="h-[70vh] w-screen flex flex-col justify-center items-center z-20">
-        <h1 className="text-[19vh] font-maker">FIRECHECK</h1>
+      <div className="md:h-[70vh] h-[40vh] w-screen flex flex-col justify-center items-center z-20">
+        <h1 className="md:text-[19vh] text-6xl font-rubik">FIRECHECK</h1>
+        <div className="flex">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="lucide lucide-flame"
+          >
+            <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            class="lucide lucide-check"
+          >
+            <path d="M20 6 9 17l-5-5" />
+          </svg>
+        </div>
+
         <h2 className="text-2xl">
-          track the status of your favorite websites in real time
+          <center>
+            track the status of your favorite websites in real time
+          </center>
         </h2>
       </div>
       <div className="w-[80vw] flex justify-between border-b-4 mb-2 border-white z-20">
-        <h1 className="text-3xl">Your apps</h1>
+        <h1 className="text-3xl font-rubik">Your apps</h1>
         <button
           onClick={() => {
             createApp();

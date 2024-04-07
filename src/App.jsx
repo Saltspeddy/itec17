@@ -13,6 +13,7 @@ import Dashboard from "./components/Dashboard";
 // import Navbar from "./components/Navbar";
 import Signup from "./components/Signup";
 import Endpoint from "./components/Endpoint";
+import Signout from "./components/Signout";
 function App() {
   const [count, setCount] = useState(0);
 
@@ -37,6 +38,9 @@ function App() {
             </Route>
             <Route path="/endpoint">
               <Endpoint />
+            </Route>
+            <Route path="/signout">
+              <Signout />
             </Route>
           </Switch>
         </div>

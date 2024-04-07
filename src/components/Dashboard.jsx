@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import Homebtn from "./HomeBtn";
 import EndpContainer from "./endpContainer";
 import { Link } from "react-router-dom/cjs/react-router-dom";
+import Settings from "./Settings";
 const URL = "http://172.20.10.5:8181/api/endp/";
 // import Cookies from "js-cookie";
 function Dashboard() {
@@ -56,10 +57,11 @@ function Dashboard() {
 
   return (
     <div className="w-screen min-h-screen bg-[#5016BC] flex flex-col justify-center items-center">
-      <Navbar />
+      <Navbar link="signout" />
       <Homebtn />
+      <Settings />
       <div></div>
-      <h1 className="text-3xl text-white mb-2 md:pt-0 pt-16">
+      <h1 className="text-3xl text-white mb-2 md:pt-0 pt-16 font-rubik">
         Enter your website URL
       </h1>
       <form onSubmit={handleSubmit}>

@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-function Navbar() {
+function Navbar(prop) {
+  const link = prop.link;
   return (
     <div className="absolute top-4 right-4 z-30">
-      <Link to="signup">
+      <Link to={link}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="white"
